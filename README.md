@@ -140,8 +140,9 @@ Open `.env` and configure your API keys:
 # Required: Free API key from https://console.groq.com
 GROQ_API_KEY="gsk_your_groq_api_key_here"
 
-# Required for session security (can keep default or customize)
-JWT_SECRET_KEY="synapsesql-enterprise-secret-jwt-key-2026-production"
+# Required for session security - no default, server refuses to start without it
+# Generate one: python -c "import secrets; print(secrets.token_urlsafe(48))"
+JWT_SECRET_KEY=""
 
 # Supabase Authentication & PostgreSQL Usage Ingestion
 SUPABASE_URL="https://your-project.supabase.co"
