@@ -38,17 +38,16 @@ COPY --from=frontend-builder /app/frontend/dist /app/frontend/dist
 
 # Ensure backend folder is on the Python module path
 ENV PYTHONPATH=/app/backend \
-    PYTHONUNBUFFERED=1 \
-    PORT=8000
+    PYTHONUNBUFFERED=1
 
 WORKDIR /app/backend
 
-# Expose production port
-EXPOSE 8000
+# Expose production port (Render default)
+EXPOSE 10000
 
-# Docker Healthcheck Probe
+# Docker Healthcheck Probe — follows $PORT so it tracks the real listener
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-  CMD curl -f http://localhost:8000/health || exit 1
+  CMD curl -f http://localhost:${PORT:-10000}/health || exit 1
 
-# Launch production server via Uvicorn
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Launch production server via Uvicorn, bound to Render's $PORT
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-10000}"]
