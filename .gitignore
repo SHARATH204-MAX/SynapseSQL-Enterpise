@@ -1,0 +1,86 @@
+# ====================================================================
+# SynapseSQL Enterprise — Git Ignore Rules
+# This file must live INSIDE the repo root (MAJOR_PROJECT/) to apply.
+# ====================================================================
+
+# --- Environment variables / secrets (NEVER commit) ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+pip-wheel-metadata/
+
+# --- Virtual environments ---
+venv/
+.venv/
+env/
+ENV/
+.conda/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- Node / Frontend ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-store/
+
+# --- Frontend builds (regenerate with `npm run build`) ---
+dist/
+dist-ssr/
+build/
+next/
+out/
+.vite/
+
+# --- Databases (regenerate student.db via `python backend/data/init_sqlite.py`) ---
+*.db
+*.sqlite
+*.sqlite3
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.iml
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs ---
+*.log
+
+# --- Temporary files ---
+*.tmp
+*.temp
+~$*
+
+# --- Large model / binary artifacts ---
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+*.gguf
+
+# --- Local uploads ---
+uploads/
