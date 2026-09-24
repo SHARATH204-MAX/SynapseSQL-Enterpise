@@ -34,6 +34,7 @@ CREATE TABLE STUDENT(
 cursor.execute("INSERT INTO DEPARTMENTS VALUES(1, 'Data Science')")
 cursor.execute("INSERT INTO DEPARTMENTS VALUES(2, 'DEVOPS')")
 cursor.execute("INSERT INTO DEPARTMENTS VALUES(3, 'CSE')")
+cursor.execute("INSERT INTO DEPARTMENTS VALUES(4, 'IT')")
 
 # Insert into STUDENT
 cursor.execute("INSERT INTO STUDENT VALUES('Krish', 'Data Science', 'A', 90, 1, 21)")
